@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -33,6 +33,28 @@ const socials = [
 ];
 
 const Header = () => {
+  const [hideHeader, setHideHeader] = useState(false);
+  const lastScrollTop = useRef(0);
+
+  const handleScroll = () => {
+    let currentScroll =
+      window.pageYOffset || document.documentElement.scrollTop;
+    if (currentScroll > lastScrollTop.current) {
+      setHideHeader(true);
+    } else {
+      setHideHeader(false);
+    }
+    lastScrollTop.current = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const handleClick = (anchor) => () => {
     const id = `${anchor}-section`;
     const element = document.getElementById(id);
@@ -50,11 +72,10 @@ const Header = () => {
       top={0}
       left={0}
       right={0}
-      translateY={0}
-      transitionProperty="transform"
-      transitionDuration=".3s"
-      transitionTimingFunction="ease-in-out"
+      transition="transform 0.3s ease-in-out"
+      transform={hideHeader ? 'translateY(-100%)' : 'translateY(0)'}
       backgroundColor="#18181b"
+      zIndex={2}
     >
       <Box color="white" maxWidth="1280px" margin="0 auto">
         <HStack
@@ -66,7 +87,12 @@ const Header = () => {
           <nav>
             <HStack spacing={4}>
               {socials.map((social, index) => (
-                <a href={social.url} key={index} target="_blank" rel="noopener noreferrer" >
+                <a
+                  href={social.url}
+                  key={index}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FontAwesomeIcon icon={social.icon} size="2x" />
                 </a>
               ))}
@@ -74,8 +100,12 @@ const Header = () => {
           </nav>
           <nav>
             <HStack spacing={8}>
-              <a href="#projects-section" onClick={handleClick("projects")}>Projects</a>
-              <a href="#contactme-section" onClick={handleClick("contactme")}>Contact Me</a>
+              <a href="#projects-section" onClick={handleClick("projects")}>
+                Projects
+              </a>
+              <a href="#contactme-section" onClick={handleClick("contactme")}>
+                Contact Me
+              </a>
             </HStack>
           </nav>
         </HStack>
