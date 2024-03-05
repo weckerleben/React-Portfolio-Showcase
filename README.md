@@ -24,6 +24,24 @@ npm start
 
 After installation, the project will be running on `http://localhost:3000`. You can view your portfolio, interact with the project cards, and submit the contact form.
 
+## Running with Docker Compose
+
+Ensure you have Docker and Docker Compose installed on your system.
+
+To build and run the container, execute:
+
+```bash
+docker compose up --build
+```
+
+The app will be available at [`http://localhost:8088`](http://localhost:8088).
+
+To stop and remove the containers, execute:
+
+```bash
+docker compose down
+```
+
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
