@@ -2,12 +2,29 @@
 
 This project is a dynamic portfolio page designed to showcase software development projects using React and Chakra UI. It features a responsive layout, interactive elements, and a contact form with validation and submission handling.
 
+---
+
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Running with Docker Compose](#running-with-docker-compose)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Acknowledgements](#acknowledgements)
+
+---
+
 ## Features
 
 - Responsive Header with scroll-linked animation
 - Project Cards using Chakra UI for a sleek design
 - Contact Form integrated with Formik and Yup for validation
 - Custom hooks for form submission simulation
+
+---
 
 ## Installation
 
@@ -20,9 +37,13 @@ npm install
 npm start
 ```
 
+---
+
 ## Usage
 
 After installation, the project will be running on `http://localhost:3000`. You can view your portfolio, interact with the project cards, and submit the contact form.
+
+---
 
 ## Running with Docker Compose
 
@@ -42,6 +63,8 @@ To stop and remove the containers, execute:
 docker compose down
 ```
 
+---
+
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -52,15 +75,21 @@ Contributions are what make the open-source community such an amazing place to l
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+---
+
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See [`LICENSE`](LICENSE.md) for more information.
+
+---
 
 ## Contact
 
 [William Eckerleben](https://williameckerleben.com/) - ing@williameckerleben.com
 
 Project Link: https://github.com/weckerleben/React-Portfolio-Showcase
+
+---
 
 ## Acknowledgements
 
