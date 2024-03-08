@@ -55,13 +55,13 @@ const Header = () => {
     };
   }, []);
 
-  const handleClick = (anchor) => () => {
+  const handleClick = (anchor) => (event) => {
+    event.preventDefault();
     const id = `${anchor}-section`;
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({
         behavior: "smooth",
-        block: "start",
       });
     }
   };
